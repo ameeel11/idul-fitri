@@ -1,21 +1,26 @@
 body {
   margin: 0;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   background: #fce4ec;
   font-family: Arial, sans-serif;
+  overflow-x: hidden;
+  box-sizing: border-box;
 }
 
 .container {
   text-align: center;
+  padding: 1rem;
+  max-width: 90vw;
 }
 
 .amplop {
   height: auto;
   display: block;
-  width: 200px;
+  width: min(200px, 80vw);
+  max-width: 100%;
 }
 
 .envelope-img:hover {
@@ -29,9 +34,44 @@ button {
   color: white;
   border-radius: 20px;
   cursor: pointer;
-  font-size: 16px;
+  font-size: clamp(14px, 4vw, 16px);
+  margin-top: 1rem;
 }
 
 button:hover {
   background: #e91e63;
 }
+
+/* Global responsive images */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Mobile media query */
+@media (max-width: 480px) {
+  .amplop {
+    width: 80vw;
+  }
+  
+  button {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+  
+  body {
+    padding: 0.5rem;
+  }
+}
+
+    /* Landscape */
+    @media (max-width: 768px) and (orientation: landscape) {
+      body {
+        align-items: flex-start;
+        padding-top: 2rem;
+      }
+      
+      .surat {
+        max-height: 90vh;
+      }
+
